@@ -1,11 +1,13 @@
-import './App.css'
+import "./App.css"
+import { FormProvider } from "./contexts/formContext"
 
 function App() {
-
   return (
-    <div className="App">
-      
-    </div>
+    <FormProvider>
+      <div className="App">
+        
+      </div>
+    </FormProvider>
   )
 }
 
