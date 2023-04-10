@@ -1,0 +1,12 @@
+ul.nav-list {
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+ul.nav-list li {
+  display: inline-block;
+  margin: 1rem;
+}

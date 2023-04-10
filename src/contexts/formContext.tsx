@@ -49,7 +49,27 @@ const initialValues: FormValues = {
   },
 }
 
-const FormContext = createContext(null)
+interface Nav {
+  id: string
+  step: Steps | Steps[]
+}
+
+const navs = [
+  {
+    id: "personalInfo",
+    step: Steps.PersonalInfo,
+  },
+  { id: "selectPlan", step: Steps.SelectPlan },
+  { id: "addOns", step: Steps.PickAddOns },
+  { id: "", step: [Steps.FinishingUp, Steps.Finished] },
+]
+
+interface FormContextValues {
+  step?: Steps
+  navs?: Nav[]
+}
+
+const FormContext = createContext<FormContextValues>({})
 
 const { Provider } = FormContext
 
@@ -62,7 +82,7 @@ const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   ) => {}
 
   return (
-    <Provider value={null}>
+    <Provider value={{ step, navs }}>
       <Formik
         onSubmit={onSubmit}
         initialValues={initialValues}
